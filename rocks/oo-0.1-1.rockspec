@@ -19,6 +19,6 @@ dependencies = {
 build = {
 	type = 'builtin',
 	modules = {
-		['class.init'] = 'init.lua'
+		['oo.init'] = 'init.lua'
 	}
 }

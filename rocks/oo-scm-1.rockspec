@@ -1,8 +1,7 @@
 package = 'oo'
 version = 'scm-1'
 source = {
-	url = 'git://github.com/limadm/lua-oo.git',
-	tag = '0.1'
+	url = 'git://github.com/limadm/lua-oo.git'
 }
 description = {
 	summary = 'Pure Lua classes with multiple inheritance',

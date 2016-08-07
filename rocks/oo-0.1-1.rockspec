@@ -1,5 +1,5 @@
 package = 'oo'
-version = 'scm-1'
+version = '0.1-1'
 source = {
 	url = 'git://github.com/limadm/lua-oo.git',
 	tag = '0.1'

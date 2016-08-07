@@ -3,7 +3,7 @@
 local class = require 'init'
 local classes = {}
 local n = 0
-local N = 1000
+local N = 500
 
 local c = class()
 
@@ -12,6 +12,7 @@ for i=1,N do
 	table.insert(classes, c)
 end
 
+math.randomseed(111)
 for i=1,N*N do
 	local obj = classes[math.random(N)]()
 	for j=1,N do

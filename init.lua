@@ -9,7 +9,6 @@ local function new(self, prototype)
 end
 
 local root = {
-	__call = new,
 	__init = function() end,
 }
 local types = {
@@ -40,13 +39,16 @@ local function extend(base,...)
 	-- link methods
 	T.super   = base
 	T.extend  = extend
-	T.__call  = new
 	T.__index = T
 	-- test if object is an instance of class (or any subclass)
 	function T:is_a(class)
 		return types[T][class]
 	end
-	return setmetatable(T, base)
+	local Tmt = {
+		__call  = new,
+		__index = base
+	}
+	return setmetatable(T, Tmt)
 end
 
 return function (...)

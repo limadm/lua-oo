@@ -52,15 +52,15 @@ Example usage:
 	c:print()  -- Automobile: Honda CG 200\nWheels: 2
 	= c.fueled -- true
 
-	= a:is_a(Product)       -- true
-	= a:is_a(Automobile)    -- true
-	= a:is_a(Bicycle)       -- false
-	= a:is_a(Motorcycle)    -- false
+	= a:is_a(Product)     -- true
+	= a:is_a(Automobile)  -- true
+	= a:is_a(Bicycle)     -- false
+	= a:is_a(Motorcycle)  -- false
 
-	= b:is_a(Product)      -- true
-	= b:is_a(Automobile)   -- false
-	= b:is_a(Bicycle)      -- true
-	= b:is_a(Motorcycle)   -- false
+	= b:is_a(Product)     -- true
+	= b:is_a(Automobile)  -- false
+	= b:is_a(Bicycle)     -- true
+	= b:is_a(Motorcycle)  -- false
 
 	= c:is_a(Product)     -- true
 	= c:is_a(Automobile)  -- true
@@ -102,7 +102,7 @@ print(n, collectgarbage('count'))
 
 The results (ran on a Core2 P8600, with luajit-2.1.0-beta2):
 
-Memory usage, as reported by `garbagecollect('count')`:
+Memory usage, as reported by `collectgarbage('count')`:
 
 ![Memory usage (KB)](tests/plots/mem.png)
 

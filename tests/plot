@@ -1,0 +1,77 @@
+#!/usr/bin/env luajit
+
+local lines = io.lines()
+local s
+local function read()
+	s = lines()
+	if s then
+		local a, b = s:match '(%S+)%s+(%S+)'
+		b = tonumber(b)
+		return a, (b and math.max(0.01, b))
+	end
+end
+
+local tests = {}
+
+repeat
+	local name, n = read()
+	if name and name ~= '' then
+		name = name:match 'test.(.+).lua'
+		tests[name] = tests[name] or {}
+		local _, m, c
+		_, m = read()
+		read()
+		_, c = read()
+		assert(_ == 'user')
+		read()
+		if not (c and m) then
+			m, c = 'err', 'err'
+		end
+		print(name, m, c)
+		table.insert(tests[name], { n = n, mem = m, cpu = c })
+	end
+until not s
+
+local cmd = { [[
+cd 'plots'
+set term svg size 600,420
+set size ratio 0.7
+set logscale x
+set logscale y
+set key outside
+set xtics (50,100,200,400,800)
+set xrange [45:900]
+]] }
+
+function plot(out, columns, range, title)
+	table.insert(cmd, 'set yrange ')
+	table.insert(cmd, range)
+	table.insert(cmd, "\nset output '")
+	table.insert(cmd, out)
+	table.insert(cmd, ".svg'\nset title '")
+	table.insert(cmd, title)
+	table.insert(cmd, "'\nplot ")
+	for name,runs in pairs(tests) do
+		local f = io.open('plots/'..name, 'w')
+		table.insert(cmd, "'")
+		table.insert(cmd, name)
+		table.insert(cmd, "' using ")
+		table.insert(cmd, columns)
+		table.insert(cmd, " with linespoints title '")
+		table.insert(cmd, name)
+		table.insert(cmd, "',")
+		for _,run in ipairs(runs) do
+			f:write(run.n,'\t',run.mem,'\t',run.cpu,'\n')
+		end
+		f:close()
+	end
+	table.insert(cmd, '\n')
+end
+
+plot('mem', '1:2', '[80:30000]', 'Memory usage (KB)')
+plot('cpu', '1:3', '[0.005:4000]', 'CPU time (s)')
+cmd = table.concat(cmd)
+
+local out = io.popen('gnuplot', 'w')
+out:write(cmd)
+out:close()

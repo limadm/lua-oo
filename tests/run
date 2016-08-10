@@ -1,0 +1,26 @@
+#!/bin/sh
+
+rock() {
+	if luarocks show $1 2>&1 | grep -q Error
+	then
+		luarocks install $2
+	fi
+}
+rock oops        oops
+rock classy      classy
+rock middleclass middleclass
+rock argcheck https://raw.githubusercontent.com/torch/argcheck/master/rocks/argcheck-scm-1.rockspec
+rock class    https://raw.githubusercontent.com/torch/class/master/rocks/class-scm-1.rockspec
+rock oo       https://raw.githubusercontent.com/limadm/lua-oo/master/rocks/oo-scm-1.rockspec
+
+for f in *.lua
+do
+	for n in 50 100 200 400 800
+	do
+		echo $f $n
+		time -p timeout 3601 luajit $f $n 2>&1
+	done
+	echo
+done > results.txt
+
+./plot <results.txt

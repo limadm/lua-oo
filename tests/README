@@ -1,0 +1,8 @@
+To create plots, execute
+
+`$ ./run`
+
+It will install rocks, execute each test and plot the results.
+Each test is capped at 1h.
+
+Requires: luajit, luarocks, gnuplot

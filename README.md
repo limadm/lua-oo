@@ -1,5 +1,5 @@
-Pure Lua classes with multiple inheritance.
-===========================================
+Pure Lua OOP with multiple inheritance
+======================================
 
 Use `T = Base:extend(Mixin1, Mixin2, ...)` to create subclasses,
 `T()` or `T{attribute1=1, attribute2=2, ...}` to create instances,
@@ -69,9 +69,9 @@ Example usage:
 ```
 
 There are other interesting alternatives in luarocks, so I have
-microbenchmarked them all. This test does NOT represent an 
+(micro)benchmarked them all. This test does NOT represent an 
 real-world class hierarchy, but helps to compare some of the
-library overhead and therefore helped me to improve lua-oo.
+library overhead and therefore helped me to improve `lua-oo`.
 Anyway, the test is something like:
 
 ```lua
@@ -112,8 +112,18 @@ without allocation, I/O and context switches.
 
 ![CPU time (s)](tests/plots/cpu.png)
 
-Oops crashed for N >= 200, and middleclass took more than 1h for
+`Oops` crashed for N >= 200, and `middleclass` took more than 1h for
 N >= 400, so they were out of these instances.
+
+Analyzing these results, we see three classes:
+
+1. `middleclass` and `oops` using less memory but more cpu;
+2. `class`, `classy` and `oo` using less cpu but more memory;
+3. `microlight` and `penlight` in between, balancing cpu and memory usage.
+
+That said, for now I personally prefer `microlight` or `penlight`
+for memory-constrained targets (e.g. Raspberry Pi) and `class`,
+`classy` or `oo` for desktop targets or server back-ends.
 
 ---
 

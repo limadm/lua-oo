@@ -6,11 +6,9 @@ source = {
 }
 description = {
 	summary = 'Pure Lua classes with multiple inheritance',
-	detailed = [[
-		Prototype-based multiple inheritance with fast type testing.
-		No method overloading thou.
-	]],
-	homepage = 'https://github.com/limadm/lua-class',
+	detailed = 'Prototype-based multiple inheritance with fast type testing.',
+	homepage = 'https://github.com/limadm/lua-oo',
+	maintainer = 'danielm@tinyhub.tk',
 	license = 'MIT/X11'
 }
 dependencies = {

@@ -11,10 +11,10 @@ rock classy      classy
 rock middleclass middleclass
 rock microlight  microlight
 rock penlight    penlight
+rock oo          oo
 rock sundown     https://raw.githubusercontent.com/torch/sundown-ffi/master/rocks/sundown-scm-1.rockspec
 rock argcheck    https://raw.githubusercontent.com/torch/argcheck/master/rocks/argcheck-scm-1.rockspec
 rock class       https://raw.githubusercontent.com/torch/class/master/rocks/class-scm-1.rockspec
-rock oo          https://raw.githubusercontent.com/limadm/lua-oo/master/rocks/oo-scm-1.rockspec
 
 for f in *.lua
 do

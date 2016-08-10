@@ -16,7 +16,7 @@ overwritten if used for something else.
 
 Example usage:
 
-```
+```lua
 	class = require 'oo'
 
 	Product = class()
@@ -74,7 +74,7 @@ real-world class hierarchy, but helps to compare some of the
 library overhead and therefore helped me to improve lua-oo.
 Anyway, the test is something like:
 
-```
+```lua
 local class = require 'oo'
 local n = 0
 local N = 100

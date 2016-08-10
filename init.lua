@@ -15,14 +15,13 @@ local types = {
 	[root] = {},
 }
 
--- Create a new subclass of self,
+-- Create a new subclass of the 'base' class,
 -- passing several tables as mixins for multiple inheritance.
 -- In case of conflicting attributes, the last mixin will resolve.
 local function extend(base,...)
 	-- T is the new subclass of self
 	local T = {
-		-- default initializer
-		__init = base.__init
+		__init = base.__init, --default initializer
 	}
 	-- superclasses of T
 	types[T] = { [T]=true }

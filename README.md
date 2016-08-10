@@ -79,7 +79,7 @@ local class = require 'oo'
 local n = 0
 local N = 100
 
--- create a base class
+--create a base class
 local c = { class() }
 
 --create a deep chain of subclasses

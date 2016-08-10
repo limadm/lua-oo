@@ -106,8 +106,9 @@ Memory usage, as reported by `garbagecollect('count')`:
 
 ![Memory usage (KB)](https://github.com/limadm/lua-oo/raw/master/tests/plots/mem.png)
 
-CPU user time, as reported by `time -p ...`. I ignored system time
-(allocation, I/O and context switches), to see what is running in Lua side.
+CPU user time, as reported by `time -p ...`.  
+Note: I ignored system time to see what is running in Lua side
+without allocation, I/O and context switches.
 
 ![CPU time (s)](https://github.com/limadm/lua-oo/raw/master/tests/plots/cpu.png)
 

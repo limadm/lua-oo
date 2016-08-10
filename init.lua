@@ -50,7 +50,34 @@ local function extend(base,...)
 	return setmetatable(T, Tmt)
 end
 
-return function (...)
-	-- alias to class creation
+-- alias to class creation
+local function class(...)
 	return extend(root,...)
 end
+
+-- shallow table copying
+local function copy(self)
+	local t = {}
+	for k,v in pairs(self) do
+		t[k] = v
+	end
+	return setmetatable(t, getmetatable(self))
+end
+
+-- deep table copying (beware: does not treat reference loops)
+local function deepcopy(self)
+	if type(self) == 'table' then
+		local t = {}
+		for k,v in pairs(self) do
+			t[k] = deepcopy(v)
+		end
+		return setmetatable(t, getmetatable(self))
+	end
+	return self
+end
+
+return setmetatable({
+	copy = copy,
+	class = class,
+	deepcopy = deepcopy,
+}, { __call = class })

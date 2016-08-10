@@ -104,13 +104,13 @@ The results (ran on a Core2 P8600, with luajit-2.1.0-beta2):
 
 Memory usage, as reported by `garbagecollect('count')`:
 
-![Memory usage (KB)](https://github.com/limadm/lua-oo/raw/master/tests/plots/mem.png)
+![Memory usage (KB)](tests/plots/mem.png)
 
 CPU user time, as reported by `time -p ...`.  
 Note: I ignored system time to see what is running in Lua side
 without allocation, I/O and context switches.
 
-![CPU time (s)](https://github.com/limadm/lua-oo/raw/master/tests/plots/cpu.png)
+![CPU time (s)](tests/plots/cpu.png)
 
 Oops crashed for N >= 200, and middleclass took more than 1h for
 N >= 400, so they were out of these instances.

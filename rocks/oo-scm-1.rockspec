@@ -4,7 +4,7 @@ source = {
 	url = 'git://github.com/limadm/lua-oo.git'
 }
 description = {
-	summary = 'Pure Lua classes with multiple inheritance',
+	summary = 'Pure Lua OOP with multiple inheritance',
 	detailed = 'Prototype-based multiple inheritance with fast type testing.',
 	homepage = 'https://github.com/limadm/lua-oo',
 	maintainer = 'danielm@tinyhub.tk',

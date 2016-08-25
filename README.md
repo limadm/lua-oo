@@ -7,7 +7,10 @@ and `object:is_a(MyClass)` to test instance typing. Mixins can be
 other classes or plain Lua tables, their attributes are shallowly
 copied to the new class. Initializers are optional and defined by
 an `__init` function, and you can access the superclass of an 
-instance with `object.super`.
+instance with `object.super`. If the initializer is called with a
+single table as the first parameter, the table contents are used
+to initialize the object, otherwise all parameters are passed to
+`T.__init`.
 
 Note that you can change attributes and methods after subclassing,
 and it is possible inherit from instances (prototypes a la JS).

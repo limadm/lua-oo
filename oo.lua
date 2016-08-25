@@ -2,9 +2,15 @@
 -- MIT/X license (c) 2016 Daniel Lima
 
 -- Create an instance of self
-local function new(self, prototype)
-	local obj = setmetatable(prototype or {}, self)
-	obj:__init()
+local function new(self, param, ...)
+	local obj
+	if not ... and type(param) == 'table' then
+		obj = setmetatable(param, self)
+		obj:__init()
+	else
+		obj = setmetatable({}, self)
+		obj:__init(param, ...)
+	end
 	return obj
 end
 

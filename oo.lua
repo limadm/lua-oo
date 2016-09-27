@@ -57,7 +57,7 @@ local function extend(base,...)
 end
 
 -- alias to class creation
-local function class(...)
+local function class(self, ...)
 	return extend(root,...)
 end
 

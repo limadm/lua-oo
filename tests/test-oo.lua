@@ -12,7 +12,7 @@ function main()
 	for i=1,N*N do
 		local o = c[math.random(N)]()
 		for j=1,N do
-			if o:is_a(c[j]) then
+			if o:is(c[j]) then
 				n = n + 1
 			end
 		end

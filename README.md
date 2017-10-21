@@ -3,7 +3,7 @@ Pure Lua OOP with multiple inheritance
 
 Use `T = Base:extend(Mixin1, Mixin2, ...)` to create subclasses,
 `T()` or `T{attribute1=1, attribute2=2, ...}` to create instances,
-and `object:is_a(MyClass)` to test instance typing. Mixins can be
+and `object:is(MyClass)` to test instance typing. Mixins can be
 other classes or plain Lua tables, their attributes are shallowly
 copied to the new class. Initializers are optional and defined by
 an `__init` function, and you can access the superclass of an 
@@ -55,20 +55,20 @@ Example usage:
 	c:print()  -- Automobile: Honda CG 200\nWheels: 2
 	= c.fueled -- true
 
-	= a:is_a(Product)     -- true
-	= a:is_a(Automobile)  -- true
-	= a:is_a(Bicycle)     -- false
-	= a:is_a(Motorcycle)  -- false
+	= a:is(Product)     -- true
+	= a:is(Automobile)  -- true
+	= a:is(Bicycle)     -- false
+	= a:is(Motorcycle)  -- false
 
-	= b:is_a(Product)     -- true
-	= b:is_a(Automobile)  -- false
-	= b:is_a(Bicycle)     -- true
-	= b:is_a(Motorcycle)  -- false
+	= b:is(Product)     -- true
+	= b:is(Automobile)  -- false
+	= b:is(Bicycle)     -- true
+	= b:is(Motorcycle)  -- false
 
-	= c:is_a(Product)     -- true
-	= c:is_a(Automobile)  -- true
-	= c:is_a(Bicycle)     -- true
-	= c:is_a(Motorcycle)  -- true
+	= c:is(Product)     -- true
+	= c:is(Automobile)  -- true
+	= c:is(Bicycle)     -- true
+	= c:is(Motorcycle)  -- true
 ```
 
 There are other interesting alternatives in luarocks, so I have
@@ -94,7 +94,7 @@ end
 for i=1,N*N do
 	local obj = c[math.random(N)]()
 	for j=1,N do
-		if obj:is_a(c[j]) then
+		if obj:is(c[j]) then
 			n = n + 1
 		end
 	end

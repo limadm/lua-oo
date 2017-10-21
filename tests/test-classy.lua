@@ -12,7 +12,7 @@ function main()
 	for i=1,N*N do
 		local o = c[math.random(N)]()
 		for j=1,N do
-			if class.is_a(o, c[j]) then
+			if class.is(o, c[j]) then
 				n = n + 1
 			end
 		end

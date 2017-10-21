@@ -49,9 +49,7 @@ local function extend(base,...)
 	function T:is(class)
 		return types[T][class]
 	end
-	function T:is(class)
-		return types[T][class]
-	end
+	T.is_a = T.is
 	local Tmt = {
 		__call  = new,
 		__index = base

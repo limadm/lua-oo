@@ -72,7 +72,7 @@ Example usage:
 ```
 
 There are other interesting alternatives in luarocks, so I have
-(micro)benchmarked them all. This test does NOT represent an 
+*benchmarked them all*. This test does NOT represent a
 real-world class hierarchy, but helps to compare some of the
 library overhead and therefore helped me to improve `lua-oo`.
 Anyway, the test is something like:
@@ -128,6 +128,10 @@ That said, for now I personally prefer `microlight` or `penlight`
 for memory-constrained targets (e.g. Raspberry Pi) and `class`,
 `classy` or `oo` for desktop targets or server back-ends.
 
+# See also
+
+I received feedback from a stronger typing module, you should [check it](//github.com/winterwolf/typedobject) too.
+
 ---
 
-MIT/X license (c) 2016 Daniel Lima
+MIT/X license (c) 2016-2020 Daniel Lima

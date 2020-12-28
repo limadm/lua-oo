@@ -37,6 +37,9 @@ local function extend(base,...)
 	-- copy mixins to T
 	for _,m in ipairs{...} do
 		types[T][m] = true
+		for t in pairs(types[m] or {}) do
+			types[T][t] = true
+		end
 		for k,v in pairs(m) do
 			T[k] = v
 		end
@@ -85,6 +88,6 @@ end
 
 return setmetatable({
 	copy = copy,
-	class = class,
 	deepcopy = deepcopy,
 }, { __call = class })
+
